@@ -88,8 +88,8 @@
 <div id="app">
 <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
     <section class="sidebar">
-        <div class="w-80px mt-3 mb-3 ml-3">
-            <img src="/assets/img/basic/logo.png" alt="">
+        <div class="w-100px mt-3 mb-3 ml-3">
+            <img src="/assets/img/logo.png" alt="">
         </div>
         <div class="relative">
             <div class="user-panel p-3 light mb-2">
@@ -111,25 +111,25 @@
                     <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>Dashboard</span>
                 </a> 
             </li>
-           <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Kontak<i
+           <li class="treeview {{ Request::is('supplier*') ? 'active' : '' }}{{ Request::is('pelanggan*') ? 'active' : '' }}"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Kontak<i
                 class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li>
-                        <a href="panel-page-users.html"><i class="icon icon-circle-o"></i>Pelanggan</a>
+                    <li class="treeview {{ Request::is('pelanggan*') ? 'active' : '' }}">
+                        <a href="/pelanggan"><i class="icon icon-circle-o"></i>Pelanggan</a>
                     </li>
-                    <li>
-                        <a href="panel-page-users-create.html"><i class="icon icon-circle-o"></i>Supplier</a>
+                    <li class="treeview">
+                        <a href="/supplier"><i class="icon icon-circle-o"></i>Supplier</a>
                     </li> 
                 </ul>
             </li>
-           <li class="treeview"><a href="#"><i class="icon icon-package light-blue-text s-18"></i>Product<i
+           <li class="treeview {{ Request::is('product*') ? 'active' : '' }}{{ Request::is('kategori_product*') ? 'active' : '' }}"><a href="#"><i class="icon icon-package light-blue-text s-18"></i>Product<i
                 class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li>
                         <a href="panel-page-users.html"><i class="icon icon-circle-o"></i>Product</a>
                     </li>
                     <li>
-                        <a href="panel-page-users-create.html"><i class="icon icon-circle-o"></i>Kategori Product</a>
+                        <a href="/kategori_product"><i class="icon icon-circle-o"></i>Kategori Product</a>
                     </li> 
                 </ul>
             </li>
@@ -171,11 +171,18 @@
 <!--Sidebar End-->
 <div class="has-sidebar-left"> 
     <div class="sticky">
-        <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar blue accent-3">
+        <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar green">
             <div class="relative">
-                <a href="#" data-toggle="push-menu" class="paper-nav-toggle pp-nav-toggle">
-                    <i></i>
-                </a>
+                <div class="d-flex">
+                    <div>
+                        <a href="#" data-toggle="push-menu" class="paper-nav-toggle pp-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                    <div class="d-none d-md-block">
+                        <h1 class="nav-title text-white">@yield('title')</h1>
+                    </div>
+                </div>
             </div>
             <!--Top Menu Start -->
             <div class="navbar-custom-menu">

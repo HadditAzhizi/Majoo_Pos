@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'User')
+@section('title', 'Kategori Product')
 @section('content')
 
 <div class="page has-sidebar-left">
@@ -7,23 +7,22 @@
       <div class="container-fluid">
           <div class="card no-b">
             <div class="card-body">
-              <a href="#" onclick="tambah()" class="btn btn-primary btn-sm" style="float:right;"><i class="icon icon-plus pr-2"></i>Tambah User</a>
-              <div class="card-title"><h4>Data User</h4></div><br>
+              <a href="#" onclick="tambah()" class="btn btn-primary btn-sm" style="float:right;"><i class="icon icon-plus pr-2"></i>Tambah Kategori Product</a>
+              <div class="card-title"><h4>Data Kategori Product</h4></div><br>
               <table class="table table-striped data-tables">
                   <thead>
                       <tr>
-                          <th>Username</th>
+                          <th>Nama</th>
                           <th>Action</th>
                       </tr>
                   </thead>
                   <tbody> 
-                      @foreach ($dt_admin as $admin)
+                      @foreach ($dt_kateg as $kategori)
                         <tr>
-                            <td>{{ $admin->username }}</td>
+                            <td>{{ $kategori->nama }}</td>
                             <td>
-                                <a onclick="edit({{$admin->id}})" class="btn btn-primary btn-xs"><i class="icon icon-pencil pr-2"></i>Edit</a>
-                                <a onclick="hapus_data({{$admin->id}})"  class="btn btn-danger btn-xs"><i class="icon icon-trash pr-2"></i>Hapus</a>
-                                <a onclick="ganti_password({{$admin->id}})"  class="btn btn-warning btn-xs"><i class="icon icon-trash pr-2"></i>Ganti Password</a>
+                                <a onclick="edit({{$kategori->id}})" class="btn btn-primary btn-xs"><i class="icon icon-pencil pr-2"></i>Edit</a>
+                                <a onclick="hapus_data({{$kategori->id}})"  class="btn btn-danger btn-xs"><i class="icon icon-trash pr-2"></i>Hapus</a>
                             </td>
                         </tr>
                      @endforeach
@@ -45,14 +44,10 @@
         @method('POST')
           <input type="text" name="id" hidden="" id="id">
             <div class="modal-body">   
-               <div class="form-group" id="username_div">
-                    <label class="control-label mb-10" id="pass_username">Username</label>
-                    <input type="text" name="username" id="username" class="form-control" required="required"> 
+               <div class="form-group">
+                    <label class="control-label mb-10">Nama</label>
+                    <input type="text" name="nama" id="nama" class="form-control" required="required"> 
                 </div> 
-               <div class="form-group" id="pass_div" hidden="hidden">
-                    <label class="control-label mb-10">Password</label>
-                    <input type="password" name="pass" id="pass" class="form-control" required="required"> 
-                </div>       
             </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
@@ -67,46 +62,19 @@
 @section('js') 
  <script type="text/javascript">
 
-  function ganti_password(id)
-  { 
-    url = 'edit_pass'; 
-    $('#id').val(id);
-    $('#title').html("Ganti Password");
-    $('#modal').modal('show');
-    $("#username_div").prop("hidden",true);
-    $("#pass_div").prop("hidden",false);
-    $("#username").prop('required',false);
-    $("#pass").prop('required',true);
-    $.ajax({
-      type: 'GET',
-      url: 'user/get_select',
-      dataType: 'json',
-      data: "id="+id,
-      success: function (resp) {
-          },
-          error: function()
-          {
-          }
-      }); 
-  }
-
   function edit(id)
   { 
     url = 'edit'; 
     $('#id').val(id);
-    $('#title').html("Edit User");
+    $('#title').html("Edit Kategori Product");
     $('#modal').modal('show');
-    $("#pass_div").prop("hidden",true);
-    $("#username_div").prop("hidden",false);
-    $("#username").prop('required',true);
-    $("#pass").prop('required',false);
     $.ajax({
       type: 'GET',
-      url: 'user/get_select',
+      url: 'product_kateg/get_select',
       dataType: 'json',
       data: "id="+id,
       success: function (resp) { 
-              $("#username").val(resp.username);  
+              $("#nama").val(resp.nama); 
           },
           error: function()
           {
@@ -117,7 +85,7 @@
   function tambah()
   { 
      url = 'tambah';
-    $('#title').html("Tambah User");
+    $('#title').html("Tambah Kategori Product");
     $('#modal').modal('show');
     $("#username_div").prop("hidden",false);
     $("#pass_div").prop("hidden",false);
@@ -129,7 +97,7 @@
       $('#btn_simpan').attr('disabled',true);    
       $.ajax({
           type: 'post',
-          url: 'user/'+url,
+          url: 'product_kateg/'+url,
           dataType: 'json',
           data: $('#form-simpan').serialize(),
           success: function (resp) { 
@@ -154,7 +122,7 @@ function hapus_data(id)
 {
    $('#id').val(id);
    swal({
-      title: "Hapus data admin?",
+      title: "Hapus data kategori product?",
       text: "",
       type: "warning",
       showLoaderOnConfirm: true,
@@ -170,7 +138,7 @@ function hapus_data(id)
       {
         $.ajax({
             type: 'DELETE',
-            url: 'user/hapus',
+            url: 'product_kateg/hapus',
             dataType: 'json',
             data: "id="+id,
             success: function (resp) { 

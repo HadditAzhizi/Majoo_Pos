@@ -19,7 +19,7 @@ class User extends Controller
 	{
 		$username = $request->username;
 		$pass = md5($request->pass);
-		$cek = DB::select("SELECT * FROM admin where username='$username' AND password='$pass'");
+		$cek = DB::select("SELECT * FROM dt_admin where username='$username' AND password='$pass'");
 
 		if(count($cek)>0)
 		{
@@ -49,7 +49,13 @@ class User extends Controller
 	public function edit(Request $request)
 	{ 
 		$update = DB::table('dt_admin') ->where('id', $request->id)->update([
-			'username' => $request->username, 
+			'username' => $request->username
+		]); 
+		return True;
+	}
+	public function edit_pass(Request $request)
+	{ 
+		$update = DB::table('dt_admin') ->where('id', $request->id)->update([
 			'password' => md5($request->pass)
 		]); 
 		return True;
