@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="/assets/img/basic/favicon.ico" type="image/x-icon">
-    <title>Majoo POS - @yield('title')</title>
+    <title>@yield('title') - Majoo POS</title>
     <!-- CSS -->
 
     <link rel="stylesheet" href="/assets/css/app.css">
@@ -137,22 +137,22 @@
                 <a href="#"><i class="icon icon-invoice-1 red-text s-18"></i>Penjualan</a>
             </li>  
             <li class="treeview">
-                <a href="#"><i class="icon icon-truck light-blue-text s-18"></i>Pembelian</a>
+                <a href="/pembelian"><i class="icon icon-truck light-blue-text s-18"></i>Pembelian</a>
             </li>  
-           <li class="treeview"><a href="#"><i class="icon icon-newspaper purple-text s-18"></i>Laporan<i
+           <li class="treeview {{ Request::is('laporan_penjualan*') ? 'active' : '' }}{{ Request::is('laporan_penjualan_produk*') ? 'active' : '' }}{{ Request::is('laporan_pembelian*') ? 'active' : '' }}{{ Request::is('laporan_pembelian_produk*') ? 'active' : '' }}"><a href="#"><i class="icon icon-newspaper purple-text s-18"></i>Laporan<i
                 class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="panel-page-users.html"><i class="icon icon-circle-o"></i>Laporan Penjualan</a>
+                        <a href="/laporan_penjualan"><i class="icon icon-circle-o"></i>Laporan Penjualan</a>
                     </li>
                     <li>
-                        <a href="panel-page-users-create.html"><i class="icon icon-circle-o"></i>Laporan Pembelian</a>
+                        <a href="/laporan_pembelian"><i class="icon icon-circle-o"></i>Laporan Pembelian</a>
                     </li> 
                     <li>
-                        <a href="panel-page-users.html"><i class="icon icon-circle-o"></i>Laporan Penjualan Per Produk</a>
+                        <a href="/laporan_penjualan_produk"><i class="icon icon-circle-o"></i>Laporan Penjualan Per Produk</a>
                     </li>
                     <li>
-                        <a href="panel-page-users-create.html"><i class="icon icon-circle-o"></i>Laporan Pembelian Per Produk</a>
+                        <a href="/laporan_pembelian_produk"><i class="icon icon-circle-o"></i>Laporan Pembelian Per Produk</a>
                     </li> 
                 </ul>
             </li>
@@ -217,10 +217,10 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/assets/js/app.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script> 
 <script src="/assets/bootstrap-sweetalert/sweetalert.min.js" type="text/javascript"></script> 
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>(function($,d){$.each(readyQ,function(i,f){$(f)});$.each(bindReadyQ,function(i,f){$(d).bind("ready",f)})})(jQuery,document)</script>
 <script type="text/javascript">
 $.ajaxSetup({

@@ -7,6 +7,7 @@ use App\Http\Controllers\Pelanggan;
 use App\Http\Controllers\Supplier;
 use App\Http\Controllers\Product_kateg;
 use App\Http\Controllers\Product;
+use App\Http\Controllers\Pembelian;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,11 +49,21 @@ Route::group(['middleware' => 'usersession'], function () {
 	Route::delete('product_kateg/hapus', [Product_kateg::class, 'hapus']);
 	// Product
 	Route::get('product', [Product::class, 'index']);
+	Route::get('product/get_all', [Product::class, 'product_all']);
 	Route::get('product_tambah', [Product::class, 'product_tambah']);
+	Route::get('product_edit/{id}', [Product::class, 'product_edit']);
 	Route::get('product/get_select', [Product::class, 'get_select']);
 	Route::post('product/tambah', [Product::class, 'tambah']);
 	Route::post('product/edit', [Product::class, 'edit']);
 	Route::delete('product/hapus', [Product::class, 'hapus']);
+	// Pembelian & Laporan
+	Route::get('pembelian', [Pembelian::class, 'index']);
+	Route::get('pembelian_tambah', [Pembelian::class, 'pembelian_tambah']);
+	Route::post('pembelian/tambah', [Pembelian::class, 'tambah']);
+	// Penjualan & Laporan
+	Route::get('penjualan', [Pembelian::class, 'index']);
+	Route::get('penjualan_tambah', [Pembelian::class, 'pembelian_tambah']);
+	Route::post('pembelian/tambah', [Pembelian::class, 'tambah']);
 });
 
 Route::get('/', function () {
