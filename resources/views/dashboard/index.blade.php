@@ -9,10 +9,10 @@
                     <div class="counter-box white r-5 p-3">
                         <div class="p-4">
                             <div class="float-right">
-                                <span class="icon icon-male text-light-blue s-48"></span>
+                                <span class="icon icon-box text-light-blue s-48"></span>
                             </div>
-                            <div class="counter-title">Laki - Laki</div>
-                            <h5 class="sc-counter mt-3"></h5>
+                            <div class="counter-title">Product</div>
+                            <h5 class="sc-counter mt-3"><?php echo $dt_product;?></h5>
                         </div> 
                     </div>
                 </div>
@@ -20,10 +20,10 @@
                     <div class="counter-box white r-5 p-3">
                         <div class="p-4">
                             <div class="float-right">
-                                <span class="icon icon-female pink-text s-48"></span>
+                                <span class="icon icon-truck pink-text s-48"></span>
                             </div>
-                            <div class="counter-title ">Perempuan</div>
-                            <h5 class="sc-counter mt-3"></h5>
+                            <div class="counter-title ">Supplier</div>
+                            <h5 class="sc-counter mt-3"><?php echo $dt_supplier;?></h5>
                         </div> 
                     </div>
                 </div>
@@ -31,11 +31,10 @@
                     <div class="counter-box white r-5 p-3">
                         <div class="p-4">
                             <div class="float-right">
-                                <span class="icon icon-male text-light-blue s-48"></span>
-                                <span class="icon icon-female pink-text s-48"></span>
+                                <span class="icon icon-invoice-1 text-light-blue s-48"></span>
                             </div>
-                            <div class="counter-title">Total Siswa</div>
-                            <h5 class="sc-counter mt-3"></h5>
+                            <div class="counter-title">Pelanggan</div>
+                            <h5 class="sc-counter mt-3"><?php echo $dt_pelanggan;?></h5>
                         </div>
                     </div>
                 </div>
@@ -46,30 +45,34 @@
                                 <span class="icon icon-user light-green-text s-48"></span>
                             </div>
                             <div class="counter-title">User</div>
-                            <h5 class="sc-counter mt-3"></h5>
+                            <h5 class="sc-counter mt-3"><?php echo $dt_user;?></h5>
                         </div>
                     </div>
                 </div>
             </div>
          <div class="card no-b">
-            <div class="card-body">
-                <a href="#" onclick="tambah()" class="btn btn-primary btn-sm" style="float:right;"><i class="icon icon-plus pr-2"></i>Tambah Siswa</a>
-                <div class="card-title"><h4>Data Siswa</h4></div><br>
-                    <table class="table table-striped data-tables">
-                        <thead>
-                            <tr>
-                                <th style="width: 10px">#</th>
-                                <th>NIS</th>
-                                <th>Nama</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Alamat</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody> 
-                        </tbody>
-                    </table>
+            <div class="card-body"> 
+                <div class="card-title"><h4>10 Product Terlaris</h4></div><br>
+                     <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Gambar</th>
+                            <th>Nama</th> 
+                            <th>Harga</th>
+                            <th>Terjual</th>
+                            <th>Total Penjualan</th>
+                        </tr>
+                        @foreach ($dt_terlaris as $terlaris) 
+                        <tr>
+                            <td><img src="/uploads/{{ $terlaris->gambar }}" height="90"/></td>  
+                            <td>{{ $terlaris->product }}</td> 
+                            <td>{{ $terlaris->harga }}</td> 
+                            <td>{{ $terlaris->qty }}</td> 
+                            <td>{{ $terlaris->harga * $terlaris->qty }}</td> 
+                        </tr>
+                     @endforeach 
+                    </thead>
+                  </table>
                 </div>
                 <!-- /.box-body -->
             </div>

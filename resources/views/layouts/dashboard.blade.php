@@ -134,7 +134,7 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class="icon icon-invoice-1 red-text s-18"></i>Penjualan</a>
+                <a href="/penjualan"><i class="icon icon-invoice-1 red-text s-18"></i>Penjualan</a>
             </li>  
             <li class="treeview">
                 <a href="/pembelian"><i class="icon icon-truck light-blue-text s-18"></i>Pembelian</a>
@@ -149,10 +149,10 @@
                         <a href="/laporan_pembelian"><i class="icon icon-circle-o"></i>Laporan Pembelian</a>
                     </li> 
                     <li>
-                        <a href="/laporan_penjualan_produk"><i class="icon icon-circle-o"></i>Laporan Penjualan Per Produk</a>
+                        <a href="/laporan_penjualan_detail"><i class="icon icon-circle-o"></i>Laporan Penjualan Per Produk</a>
                     </li>
                     <li>
-                        <a href="/laporan_pembelian_produk"><i class="icon icon-circle-o"></i>Laporan Pembelian Per Produk</a>
+                        <a href="/laporan_pembelian_detail"><i class="icon icon-circle-o"></i>Laporan Pembelian Per Produk</a>
                     </li> 
                 </ul>
             </li>

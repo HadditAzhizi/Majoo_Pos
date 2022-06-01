@@ -17,6 +17,16 @@ class Pembelian extends Controller
   		$data['dt_pembelian'] = Mpembelian::get_data();
 		return view('dashboard/pembelian', $data);
 	} 
+	public function laporan_pembelian()
+	{
+  		$data['dt_pembelian'] = Mpembelian::get_data();
+		return view('dashboard/laporan_pembelian', $data);
+	} 
+	public function laporan_pembelian_detail()
+	{
+  		$data['dt_pembelian'] = Mpembelian::laporan_pembelian_detail();
+		return view('dashboard/laporan_pembelian_detail', $data);
+	} 
 	public function pembelian_tambah()
 	{
   		$data['dt_supplier'] = Msupplier::get_data();
@@ -29,7 +39,7 @@ class Pembelian extends Controller
 			'no_pembelian' => $request->no_pembelian,
 			'id_supplier' => $request->supplier,
 			'tgl_beli' => $request->tgl_pembelian, 
-			'total' => str_replace(',', '', $request->item_total)
+			'total' => str_replace(',', '', $request->sub_total)
 		]);
 		$id_pembelian =  DB::getPdo()->lastInsertId();
 		$dt_product = $request->product;

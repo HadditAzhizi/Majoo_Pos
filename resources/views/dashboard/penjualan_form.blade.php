@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'Pembelian')
+@section('title', 'Penjualan')
 @section('content')
  <style>
         .progress { position:relative; width:100%; }
@@ -19,18 +19,18 @@
               @csrf
               @method('POST')
                   <div class="form-group">
-                      <label class="control-label mb-10">No Pembelian</label>
-                      <input type="text" name="no_pembelian" class="form-control" required="required"> 
+                      <label class="control-label mb-10">No Penjualan</label>
+                      <input type="text" name="no_penjualan" class="form-control" required="required"> 
                   </div> 
                  <div class="form-group">
-                      <label class="control-label mb-10">Tanggal pembelian</label>
-                      <input type="date" name="tgl_pembelian" class="form-control" required="required"> 
+                      <label class="control-label mb-10">Tanggal Penjualan</label>
+                      <input type="date" name="tgl_penjualan" class="form-control" required="required"> 
                   </div> 
                    <div class="form-group">
-                      <label class="control-label mb-10">Supplier</label>
-                      <select class="form-control select2" name="supplier">
-                        @foreach ($dt_supplier as $supplier)
-                          <option value="{{ $supplier->id }}">{{ $supplier->nama }}</option>
+                      <label class="control-label mb-10">Pelanggan</label>
+                      <select class="form-control select2" name="pelanggan">
+                        @foreach ($dt_pelanggan as $pelanggan)
+                          <option value="{{ $pelanggan->id }}">{{ $pelanggan->nama }}</option>
                         @endforeach
                       </select>
                   </div>  
@@ -64,6 +64,18 @@
                           <td><input type="text" class="form-control" name="sub_total" value="" jAutoCalc="SUM({item_total})"></td>
                         </tr> 
                         <tr>
+                          <td colspan="3">&nbsp;</td>
+                          <td>Bayar</td>
+                          <td></td>
+                          <td><input class="form-control" type="text" name="bayar" value="0"></td>
+                        </tr> 
+                        <tr>
+                          <td colspan="3">&nbsp;</td>
+                          <td>Kembalian</td>
+                          <td>&nbsp;</td>
+                          <td><input type="text" class="form-control" name="kembalian" value="" jAutoCalc="SUM({item_total}) - {bayar}"></td>
+                        </tr> 
+                        <tr>
                           <td colspan="99"><button class="btn btn-primary row-add">Add Item</button></td>
                         </tr>
                       </table> 
@@ -90,7 +102,7 @@
               console.log(qty);
       $.ajax({
           type: 'post',
-          url: 'pembelian/tambah',
+          url: 'penjualan/tambah',
           dataType: 'json',
           data: $('#cart').serialize()+"&qty_arr="+qty+"&harga_arr="+harga,
           success: function (resp) {
@@ -100,7 +112,7 @@
                     text:"",
                     type: "success"
                 }, function() {
-                    location.href="/pembelian";
+                    location.href="/penjualan";
                 });  
           },
           error: function()

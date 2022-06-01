@@ -17,6 +17,16 @@ class Penjualan extends Controller
   		$data['dt_penjualan'] = Mpenjualan::get_data();
 		return view('dashboard/penjualan', $data);
 	} 
+	public function laporan_penjualan()
+	{
+  		$data['dt_penjualan'] = Mpenjualan::get_data();
+		return view('dashboard/laporan_penjualan', $data);
+	} 
+	public function laporan_penjualan_detail()
+	{
+  		$data['dt_penjualan'] = Mpenjualan::laporan_penjualan_detail();
+		return view('dashboard/laporan_penjualan_detail', $data);
+	} 
 	public function penjualan_tambah()
 	{
   		$data['dt_pelanggan'] = Mpelanggan::get_data();
@@ -29,7 +39,7 @@ class Penjualan extends Controller
 			'no_penjualan' => $request->no_penjualan,
 			'id_pelanggan' => $request->pelanggan,
 			'tgl_jual' => $request->tgl_penjualan, 
-			'total' => str_replace(',', '', $request->item_total)
+			'total' => str_replace(',', '', $request->sub_total)
 		]);
 		$id_penjualan =  DB::getPdo()->lastInsertId();
 		$dt_product = $request->product;

@@ -16,4 +16,10 @@ class Mpembelian extends Model
 		
 		return $data;
 	}
+    public function laporan_pembelian_detail()
+	{ 
+		$data = DB::select("SELECT product.nama as product, transaksi_beli_detail.harga, transaksi_beli_detail.qty, transaksi_beli.no_pembelian, transaksi_beli.tgl_beli from transaksi_beli_detail inner join transaksi_beli on transaksi_beli_detail.id_pembelian=transaksi_beli.id inner join product on product.id=transaksi_beli_detail.product_id"); 
+		
+		return $data;
+	}
 }
