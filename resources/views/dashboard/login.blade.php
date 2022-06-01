@@ -2,15 +2,15 @@
 @section('title', 'Login')
 @section('content') 
 <main>
-    <div id="primary" class="blue4 p-t-b-100 height-full responsive-phone">
+    <div id="primary" class="green p-t-b-100 height-full responsive-phone">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <img src="assets/img/icon/icon-plane.png" alt="">
+                <div class="col-lg-5">
+                    <img src="assets/img/logo_white.png" alt="" style="margin-top: 130px;">
                 </div>
-                <div class="col-lg-6 p-t-100">
+                <div class="col-lg-7 p-t-100">
                     <div class="text-white">
-                        <h1>Welcome Back</h1>
+                        <h1>Selamat datang di Majoo POS</h1>
                         <p class="s-18 p-t-b-20 font-weight-lighter">Login - Majoo POS</p>
                     </div>
                      <form action="#" id="form-simpan">
@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <input type="submit" class="btn btn-success btn-lg btn-block" value="Login">
+                                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Login">
                             </div>
                         </div>
                     </form>

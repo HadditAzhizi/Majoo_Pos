@@ -7,7 +7,7 @@
       <div class="container-fluid">
           <div class="card no-b">
             <div class="card-body">
-              <a href="#" onclick="tambah()" class="btn btn-primary btn-sm" style="float:right;"><i class="icon icon-plus pr-2"></i>Tambah Pelanggan</a>
+              <a href="#" onclick="tambah()" class="btn btn-success btn-sm" style="float:right;"><i class="icon icon-plus pr-2"></i>Tambah Pelanggan</a>
               <div class="card-title"><h4>Data Pelanggan</h4></div><br>
               <table class="table table-striped data-tables">
                   <thead>
@@ -143,7 +143,7 @@ function hapus_data(id)
 {
    $('#id').val(id);
    swal({
-      title: "Hapus data pelanggan?",
+      title: "Hapus pelanggan?",
       text: "",
       type: "warning",
       showLoaderOnConfirm: true,

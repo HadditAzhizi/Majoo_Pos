@@ -126,7 +126,7 @@
                 class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="panel-page-users.html"><i class="icon icon-circle-o"></i>Product</a>
+                        <a href="/product"><i class="icon icon-circle-o"></i>Product</a>
                     </li>
                     <li>
                         <a href="/kategori_product"><i class="icon icon-circle-o"></i>Kategori Product</a>
@@ -214,11 +214,13 @@
  @yield('content')
 <div class="control-sidebar-bg shadow white fixed"></div>
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/assets/js/app.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
 <script src="/assets/bootstrap-sweetalert/sweetalert.min.js" type="text/javascript"></script> 
-<script src="/assets/js/app.js"></script> 
 <script>(function($,d){$.each(readyQ,function(i,f){$(f)});$.each(bindReadyQ,function(i,f){$(d).bind("ready",f)})})(jQuery,document)</script>
 <script type="text/javascript">
 $.ajaxSetup({

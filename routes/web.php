@@ -6,6 +6,7 @@ use App\Http\Controllers\User;
 use App\Http\Controllers\Pelanggan;
 use App\Http\Controllers\Supplier;
 use App\Http\Controllers\Product_kateg;
+use App\Http\Controllers\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,13 @@ Route::group(['middleware' => 'usersession'], function () {
 	Route::post('product_kateg/tambah', [Product_kateg::class, 'tambah']);
 	Route::post('product_kateg/edit', [Product_kateg::class, 'edit']);
 	Route::delete('product_kateg/hapus', [Product_kateg::class, 'hapus']);
+	// Product
+	Route::get('product', [Product::class, 'index']);
+	Route::get('product_tambah', [Product::class, 'product_tambah']);
+	Route::get('product/get_select', [Product::class, 'get_select']);
+	Route::post('product/tambah', [Product::class, 'tambah']);
+	Route::post('product/edit', [Product::class, 'edit']);
+	Route::delete('product/hapus', [Product::class, 'hapus']);
 });
 
 Route::get('/', function () {

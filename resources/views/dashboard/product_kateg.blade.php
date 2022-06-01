@@ -7,7 +7,7 @@
       <div class="container-fluid">
           <div class="card no-b">
             <div class="card-body">
-              <a href="#" onclick="tambah()" class="btn btn-primary btn-sm" style="float:right;"><i class="icon icon-plus pr-2"></i>Tambah Kategori Product</a>
+              <a href="#" onclick="tambah()" class="btn btn-success btn-sm" style="float:right;"><i class="icon icon-plus pr-2"></i>Tambah Kategori Product</a>
               <div class="card-title"><h4>Data Kategori Product</h4></div><br>
               <table class="table table-striped data-tables">
                   <thead>
@@ -122,7 +122,7 @@ function hapus_data(id)
 {
    $('#id').val(id);
    swal({
-      title: "Hapus data kategori product?",
+      title: "Hapus kategori product?",
       text: "",
       type: "warning",
       showLoaderOnConfirm: true,
