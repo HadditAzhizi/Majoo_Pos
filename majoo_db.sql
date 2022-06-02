@@ -11,7 +11,7 @@
  Target Server Version : 100138
  File Encoding         : 65001
 
- Date: 02/06/2022 04:46:32
+ Date: 02/06/2022 17:58:04
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,7 @@ CREATE TABLE `dt_admin`  (
 -- ----------------------------
 -- Records of dt_admin
 -- ----------------------------
-INSERT INTO `dt_admin` VALUES (4, 'admin12', '21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO `dt_admin` VALUES (4, 'admin', '21232f297a57a5a743894a0e4a801fc3');
 INSERT INTO `dt_admin` VALUES (8, 'Muhammad Haddit', '21232f297a57a5a743894a0e4a801fc3');
 
 -- ----------------------------
@@ -124,8 +124,8 @@ CREATE TABLE `product_stock`  (
 -- ----------------------------
 -- Records of product_stock
 -- ----------------------------
-INSERT INTO `product_stock` VALUES (2, 16, -19);
-INSERT INTO `product_stock` VALUES (3, 17, -15);
+INSERT INTO `product_stock` VALUES (2, 16, 81);
+INSERT INTO `product_stock` VALUES (3, 17, 85);
 INSERT INTO `product_stock` VALUES (4, 18, -3);
 INSERT INTO `product_stock` VALUES (5, 19, -4);
 INSERT INTO `product_stock` VALUES (6, 20, 4);
@@ -141,12 +141,13 @@ CREATE TABLE `transaksi_beli`  (
   `total` int(11) NULL DEFAULT NULL,
   `tgl_beli` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of transaksi_beli
 -- ----------------------------
 INSERT INTO `transaksi_beli` VALUES (19, 2, '323324234', 12000, '2022-06-17 00:00:00');
+INSERT INTO `transaksi_beli` VALUES (20, 2, '2313123', 1700000, '2022-06-02 00:00:00');
 
 -- ----------------------------
 -- Table structure for transaksi_beli_detail
@@ -159,7 +160,7 @@ CREATE TABLE `transaksi_beli_detail`  (
   `harga` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `qty` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of transaksi_beli_detail
@@ -167,6 +168,8 @@ CREATE TABLE `transaksi_beli_detail`  (
 INSERT INTO `transaksi_beli_detail` VALUES (9, '19', 20, '2000', 4);
 INSERT INTO `transaksi_beli_detail` VALUES (10, '19', 17, '5000', 2);
 INSERT INTO `transaksi_beli_detail` VALUES (11, '19', 18, '12000', 1);
+INSERT INTO `transaksi_beli_detail` VALUES (12, '20', 17, '5000', 100);
+INSERT INTO `transaksi_beli_detail` VALUES (13, '20', 16, '12000', 100);
 
 -- ----------------------------
 -- Table structure for transaksi_jual
