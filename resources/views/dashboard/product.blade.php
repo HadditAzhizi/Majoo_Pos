@@ -40,13 +40,13 @@ $(document).ready(function() {
         serverSide: true,
         ajax: "product/get_all",
         columns: [
-            {data: 'gambar', name: 'Gambar'},
-            {data: 'nama', name: 'Nama'},
-            {data: 'deskripsi', name: 'Deskripsi'},
-            {data: 'harga', name: 'Harga'},
+            {data: 'gambar', name: 'gambar'},
+            {data: 'nama', name: 'nama'},
+            {data: 'deskripsi', name: 'deskripsi'},
+            {data: 'harga', name: 'harga'},
             {data: 'Kategori_Product', name: 'Kategori_Product'},
-            {data: 'stock', name: 'Stock'},
-            {data: 'action', name: 'Action'},
+            {data: 'stock', name: 'stock'},
+            {data: 'action', name: 'action'},
         ],
         columnDefs:
             [{
