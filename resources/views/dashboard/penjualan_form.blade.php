@@ -67,7 +67,7 @@
                           <td colspan="3">&nbsp;</td>
                           <td>Bayar</td>
                           <td></td>
-                          <td><input class="form-control" type="text" name="bayar" value="0"></td>
+                          <td><input class="form-control bayar" type="text" name="bayar" value="0"></td>
                         </tr> 
                         <tr>
                           <td colspan="3">&nbsp;</td>
@@ -163,5 +163,17 @@
         row.find('.price').val(harga); 
         row.find('.qty').focus(); 
     });
+
+  $(".bayar").on('keyup', function(){
+    var n = parseInt($(this).val().replace(/\D/g,''),10);
+    if(isNaN(n))
+    {
+        $(this).val("0");
+    }
+    else
+    { 
+        $(this).val(n.toLocaleString());
+    }
+});
   </script>
 @endsection
