@@ -2,6 +2,42 @@
 @section('title', 'Pelanggan')
 @section('content')
 
+<div class="modal fade" id="modal" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="title"></h6> 
+      </div>
+        <form id="form-simpan" method="post">
+        @csrf
+        @method('POST')
+          <input type="text" name="id" hidden="" id="id">
+            <div class="modal-body">   
+               <div class="form-group">
+                    <label class="control-label mb-10">Nama</label>
+                    <input type="text" name="nama" id="nama" class="form-control" required="required"> 
+                </div> 
+               <div class="form-group">
+                    <label class="control-label mb-10">Alamat Lengkap</label>
+                    <textarea class="form-control" id="alamat" name="alamat"></textarea> 
+                </div> 
+               <div class="form-group">
+                    <label class="control-label mb-10">No Telepon</label>
+                    <input type="number" name="no_telp" id="no_telp" class="form-control">  
+                </div> 
+               <div class="form-group">
+                    <label class="control-label mb-10">Email</label>
+                    <input type="email" name="email" id="email" class="form-control"> 
+                </div> 
+            </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-primary" id="btn_simpan">Simpan</button>
+          </div>
+      </form>
+    </div> 
+  </div> 
+</div>
 <div class="page has-sidebar-left">
   <header class="my-3">
       <div class="container-fluid">
@@ -38,42 +74,6 @@
         </div>
     </div>
   </header>
-</div>
-<div class="modal fade" id="modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h6 class="modal-title" id="title"></h6> 
-      </div>
-        <form id="form-simpan" method="post">
-        @csrf
-        @method('POST')
-          <input type="text" name="id" hidden="" id="id">
-            <div class="modal-body">   
-               <div class="form-group">
-                    <label class="control-label mb-10">Nama</label>
-                    <input type="text" name="nama" id="nama" class="form-control" required="required"> 
-                </div> 
-               <div class="form-group">
-                    <label class="control-label mb-10">Alamat Lengkap</label>
-                    <textarea class="form-control" id="alamat" name="alamat"></textarea> 
-                </div> 
-               <div class="form-group">
-                    <label class="control-label mb-10">No Telepon</label>
-                    <input type="number" name="no_telp" id="no_telp" class="form-control">  
-                </div> 
-               <div class="form-group">
-                    <label class="control-label mb-10">Email</label>
-                    <input type="email" name="email" id="email" class="form-control"> 
-                </div> 
-            </div>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-            <button type="submit" class="btn btn-primary" id="btn_simpan">Simpan</button>
-          </div>
-      </form>
-    </div> 
-  </div> 
 </div>
 @endsection
 
